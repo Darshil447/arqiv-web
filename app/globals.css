@@ -28,3 +28,34 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Thin technical grid/line pattern */
+.tech-lines {
+  position: absolute;
+  inset: 0;
+  /* Adjusting the opacity to be very subtle */
+  opacity: 0.15;
+  background-image: radial-gradient(#D4A017 0.5px, transparent 0.5px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+  pointer-events: none;
+}
+
+/* Decorative SVG lines for the sides (The 'Amtar' look) */
+.side-line {
+  position: absolute;
+  stroke: #D4A017;
+  stroke-width: 1;
+  fill: none;
+  opacity: 0.2;
+}
+
+/* A slow pulse for the decorative dots */
+@keyframes techPulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+.tech-dot {
+  fill: #D4A017;
+  animation: techPulse 4s infinite ease-in-out;
+}

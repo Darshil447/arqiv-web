@@ -1,80 +1,119 @@
 "use client";
-import { React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 
 const Navbar = () => {
-    const [clickHamburger, setClickHamburger] = useState(false);
-    const [color, setColor] = useState(false);
-    const [activeItem, setActiveItem] = useState("/");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeItem, setActiveItem] = useState("/");
 
-    const handleClick = () => setClickHamburger(!clickHamburger);
-    const changeColor = () => {
-        if (window.scrollY >= 100) {
-            setColor(true);
-        } else {
-            setColor(false);
-        }
-    };
+  const handleScroll = () => setScrolled(window.scrollY >= 80);
 
-    useEffect(() => {
-        window.addEventListener("scroll", changeColor);
-        return () => {
-            window.removeEventListener("scroll", changeColor);
-        };
-    }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    setActiveItem(window.location.pathname);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    useEffect(() => {
-        // Determine the active route based on the current URL pathname
-        setActiveItem(window.location.pathname);
-    }, []);
+  const handleItemClick = (path) => {
+    setActiveItem(path);
+    setMenuOpen(false);
+  };
 
-    const handleItemClick = (path) => {
-        setActiveItem(path);
-        setClickHamburger(false); // Close hamburger menu after item click
-    };
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/privacyPolicy", label: "Privacy Policy" },
+    { href: "/termsCondition", label: "Terms & Conditions" },
+  ];
 
+  return (
+    <>
+      {/* Fixed navbar bar — logo stays pinned */}
+      <header
+        className={`z-50 h-20 flex items-center justify-between px-6 lg:px-16 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-md border-b border-[#E8E8E4] shadow-sm"
+            : "bg-transparent"
+        }`}
+      >
+        {/* Logo — always visible, always fixed */}
+        <Link href="/" onClick={() => handleItemClick("/")}>
+          <Image
+            src="/images/Arqiv_Logo_Black 2.svg"
+            alt="Arqiv"
+            width={120}
+            height={40}
+            className="w-[110px] h-auto"
+          />
+        </Link>
 
-    return (
-        <div
-            className={`flex justify-between items-center fixed w-full h-20 z-20 font-ginger transition-colors duration-300 ${
-                color ? "bg-white/90 backdrop-blur-sm shadow-sm border-b border-[#D3D3D3]/40" : "bg-transparent"
-            }`}
+        {/* Desktop nav links */}
+        <nav className="hidden lg:flex items-center gap-8">
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={() => handleItemClick(href)}
+              className={`font-sans text-sm transition-colors duration-200 ${
+                activeItem === href
+                  ? "text-black font-medium"
+                  : "text-[#888] hover:text-black"
+              }`}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-[#F5F5F0] border border-[#E8E8E4] transition-colors hover:bg-[#EEEDE8]"
+          aria-label="Toggle menu"
         >
-            <div className="pt-[10px] lg:pt-[50px] lg:pl-[153.36px] pl-[20px]">
-                <Link href="/">
-                    <Image
-                        src="/images/logo.png"
-                        alt="logo"
-                        width={150}
-                        height={100}
-                        className="lg:w-[150px] lg:h-[100px] md:w-[150px] md:h-[100px] w-[150px] h-[100px]"
-                    />
-                </Link>
-            </div>
+          {menuOpen ? (
+            <FaTimes size={15} className="text-black" />
+          ) : (
+            <FaBars size={15} className="text-black" />
+          )}
+        </button>
+      </header>
 
-            <div
-                className={`${
-                    clickHamburger
-                        ? "flex flex-col  w-full h-auto fixed top-0 left-0 transition-all duration-300 bg-black bg-opacity-95 -z-20 pb-9 px-[20px]"
-                        : "hidden lg:flex lg:justify-center lg:items-center"
-                } flex lg:h-[48px] lg:pt-[48px] lg:gap-[36px] lg:mr-36 lg:text-[16px] text-[24px] pt-28 gap-[20px]`}
+      {/* Mobile drawer — slides down below the fixed bar */}
+      <div
+        className={`fixed top-20 left-0 right-0 z-40 bg-white border-b border-[#E8E8E4] shadow-lg transition-all duration-300 overflow-hidden lg:hidden ${
+          menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <nav className="flex flex-col px-6 py-4 gap-1">
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={() => handleItemClick(href)}
+              className={`py-3 px-4 rounded-xl text-sm font-sans transition-all duration-200 ${
+                activeItem === href
+                  ? "bg-[#FFF8E7] text-[#D4A017] font-medium"
+                  : "text-[#555] hover:bg-[#F8F8F5] hover:text-black"
+              }`}
             >
+              {label}
+            </Link>
+          ))}
+        </nav>
+      </div>
 
-                            </div>
-            <div
-                onClick={handleClick}
-                className="lg:hidden pr-3 pt-[10px]"
-            >
-                {clickHamburger ? (
-                    <FaTimes size={25} className="text-white" />
-                ) : (
-                    <FaBars size={25} className="text-black" />
-                )}
-            </div>
-        </div>
-    );
+      {/* Backdrop */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/10 backdrop-blur-[2px] lg:hidden"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+    </>
+  );
 };
 
 export default Navbar;

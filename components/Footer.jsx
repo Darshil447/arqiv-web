@@ -1,87 +1,101 @@
 "use client";
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
+  return (
+    <footer className="bg-[#111] text-white font-sans">
+      {/* Top section */}
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12">
 
-    return (
-        <div>
-            <footer className="font-ginger">
-                <div className="w-full lg:h-[280px] bg-[#D4A017] lg:mt-36 mt-12 ">
-                    <div className="flex lg:pt-8 pt-6 flex-col lg:flex-row">
-                        <div className="text-[16px] text-opacity-[80%] text-white text-center underline lg:w-[60%] w-full pl-2 pt-2 lg:pl-36">
-                            <p className="lg:w-[101px] cursor-pointer">
-                                <Link href="/termsCondition">
-                                    Terms of use
-                                </Link>
-                            </p>
-                            <p className="lg:pt-[30px] pt-[15px] lg:w-[112px] cursor-pointer">
-                                <Link href="/privacyPolicy">
-                                    Privacy policy
-                                </Link>
-                            </p>
-                        </div>
-                        <div>
-                            <div className="flex gap-4 justify-center pt-8 lg:pt-0">
-                                <div>
-                                    <Image
-                                        src="/images/playStore.svg"
-                                        alt="playStore"
-                                        width={200}
-                                        height={70}
-                                        className="lg:w-[180px] lg:h-[70px] md:w-[160px] md:h-[55px] w-[130px] h-[45px] "
-                                    ></Image>
-                                </div>
-                                <div>
-                                    <Image
-                                        src="/images/appStore.svg"
-                                        alt="appStore"
-                                        width={200}
-                                        height={70}
-                                        className="lg:w-[180px] lg:h-[70px] md:w-[160px] md:h-[55px] w-[130px] h-[45px]"
-                                    ></Image>
-                                </div>
-                            </div>
-                            <div className="flex lg:gap-6 gap-4 lg:mt-6 mt-9 justify-center lg:justify-start">
-                                <div>
-                                    <Image
-                                        src="/images/instagram.svg"
-                                        alt="instagram"
-                                        width={40}
-                                        height={40}
-                                    ></Image>
-                                </div>
-                                <div>
-                                    <Image
-                                        src="/images/facebook.svg"
-                                        alt="facebook"
-                                        width={40}
-                                        height={40}
-                                    ></Image>
-                                </div>
-                                <div>
-                                    <Image
-                                        src="/images/linkedIn.svg"
-                                        alt="linkedIn"
-                                        width={40}
-                                        height={40}
-                                    ></Image>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          {/* Brand column */}
+          <div className="flex flex-col gap-5 md:max-w-[220px]">
+            <Image
+              src="/images/Arqiv_Logo_Black 2.svg"
+              alt="Arqiv"
+              width={100}
+              height={34}
+              className="w-[90px] h-auto brightness-0 invert"
+            />
+            <p className="text-[#666] text-xs leading-relaxed font-light">
+              Connecting users with trusted local service providers. Search, chat, and book — all in one place.
+            </p>
+          </div>
 
-                    <p className="text-white text-opacity-[70%] flex justify-center items-center gap-1 mx-auto lg:mt-12 mt-6 pb-3">
-                        <span>&copy;</span>
-                        <span className="text-[12px]">
-                            Arqiv, All rights reserved.
-                        </span>
-                    </p>
-                </div>
-            </footer>
+          {/* Links column */}
+          <div className="flex flex-col gap-3">
+            <p className="text-[10px] uppercase tracking-[3px] text-[#D4A017] font-medium mb-1">Legal</p>
+            <Link
+              href="/termsCondition"
+              className="text-[#888] text-sm hover:text-white transition-colors duration-200"
+            >
+              Terms of Use
+            </Link>
+            <Link
+              href="/privacyPolicy"
+              className="text-[#888] text-sm hover:text-white transition-colors duration-200"
+            >
+              Privacy Policy
+            </Link>
+          </div>
+
+          {/* Download + Social column */}
+          <div className="flex flex-col gap-6">
+            <div>
+              <p className="text-[10px] uppercase tracking-[3px] text-[#D4A017] font-medium mb-4">Download</p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Image
+                  src="/images/playStore.svg"
+                  alt="Google Play"
+                  width={140}
+                  height={46}
+                  className="w-[130px] h-auto"
+                />
+                <Image
+                  src="/images/appStore.svg"
+                  alt="App Store"
+                  width={140}
+                  height={46}
+                  className="w-[130px] h-auto"
+                />
+              </div>
+            </div>
+
+            <div>
+              <p className="text-[10px] uppercase tracking-[3px] text-[#D4A017] font-medium mb-4">Follow Us</p>
+              <div className="flex gap-4">
+                {[
+                  { src: "/images/instagram.svg", alt: "Instagram" },
+                  { src: "/images/facebook.svg", alt: "Facebook" },
+                  { src: "/images/linkedIn.svg", alt: "LinkedIn" },
+                ].map(({ src, alt }) => (
+                  <div
+                    key={alt}
+                    className="w-9 h-9 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center hover:border-[#D4A017] hover:bg-[#D4A017]/10 transition-all duration-200 cursor-pointer"
+                  >
+                    <Image src={src} alt={alt} width={18} height={18} className="w-[18px] h-[18px] brightness-0 invert opacity-70" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-[#1F1F1F]">
+        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-[#555] text-xs">
+            © {new Date().getFullYear()} Arqiv. All rights reserved.
+          </p>
+          <p className="text-[#3A3A3A] text-xs">
+            Built for those who value their time.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
