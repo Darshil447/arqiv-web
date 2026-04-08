@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  /* Aligned with app profile UI: mustard primary, cream highlight, neutral text */
+  --brand-primary: #d4a017;
+  --brand-primary-hover: #b8890f;
+  --brand-cream: #fff9e6;
+  --brand-muted: #757575;
+  --brand-border: #d3d3d3;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand-primary);
+  --color-brand-hover: var(--brand-primary-hover);
+  --color-brand-cream: var(--brand-cream);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Keep light theme to match app marketing palette (cream / mustard / black). */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
