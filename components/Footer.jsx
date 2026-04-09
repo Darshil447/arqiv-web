@@ -43,7 +43,7 @@ const Footer = () => {
           {/* Download + Social column */}
           <div className="flex flex-col gap-6">
             <div>
-              <p className="text-xs uppercase tracking-[2.4px] text-[#D4A017] font-semibold mb-4">Download</p>
+              <p className="text-xs uppercase tracking-[2.4px] text-[#D4A017] font-semibold mb-4">Comming soon in</p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Image
                   src="/images/playStore.svg"

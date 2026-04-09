@@ -113,3 +113,28 @@ body {
   fill: #D4A017;
   animation: techPulse 4s infinite ease-in-out;
 }
+
+/* === LOGO STYLING === */
+
+.logo-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-cream);
+  border: 2px solid var(--brand-primary);
+  border-radius: 50%;
+  padding: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(212, 160, 23, 0.2);
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(212, 160, 23, 0.3);
+  border-color: var(--brand-primary-hover);
+}
+
+.logo-container img {
+  width: 40px;
+  height: auto;
+}

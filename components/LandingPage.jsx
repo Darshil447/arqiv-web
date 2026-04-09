@@ -3,6 +3,8 @@
 import { useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../src/lib /firebaseConfig";
 
 import {
   Home,
@@ -71,8 +73,8 @@ const LandingPage = () => {
     }
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
-    } else if (!/^\+?[\d\s\-\(\)]+$/.test(formData.phone)) {
-      newErrors.phone = 'Please enter a valid phone number';
+    } else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, ''))) {
+      newErrors.phone = 'Please enter a valid 10-digit phone number';
     }
     
     return newErrors;
@@ -89,26 +91,54 @@ const LandingPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     const newErrors = validateForm();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
     
+    
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setShowSuccess(true);
-    
-    // Reset form after success
-    setTimeout(() => {
-      setFormData({ firstName: '', lastName: '', email: '', phone: '' });
-      setShowSuccess(false);
-    }, 3000);
+    try {
+      
+      const documentData = {
+        firstName: formData.firstName.trim(),
+        lastName: formData.lastName.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        createdAt: serverTimestamp()
+      };
+      
+      
+      // Save to Firebase Firestore
+      const docRef = await addDoc(collection(db, "Waiting_List"), documentData);
+      
+      
+      
+      setIsSubmitting(false);
+      setShowSuccess(true);
+      
+      
+      
+      // Reset form after success
+      setTimeout(() => {
+        setFormData({ firstName: '', lastName: '', email: '', phone: '' });
+        setShowSuccess(false);
+      }, 3000);
+      
+    } catch (error) {
+      console.error("🔥 Firebase error details:", {
+        code: error.code,
+        message: error.message,
+        stack: error.stack
+      });
+      
+      setIsSubmitting(false);
+      
+      // You could add error handling here, like showing an error message
+      alert("There was an error submitting your information. Please try again.");
+    }
   };
 
   return (
@@ -249,7 +279,7 @@ const LandingPage = () => {
 
           <div className="au1 mb-10 flex items-center gap-3">
             <div className="divider" />
-            <span className="text-[10px] tracking-[4px] uppercase font-body font-medium text-[#D4A017]">
+            <span className="text-[14px] tracking-[4px] uppercase font-body font-medium text-[#D4A017]">
               Trusted Professionals
             </span>
             <div className="divider" />
@@ -300,8 +330,8 @@ const LandingPage = () => {
 
       {/* ═══ 2. WHAT YOU GET ═══ */}
       <section 
-        ref={exploreRef}
-        className="py-32 px-6 bg-white scroll-mt-20"
+       
+        className="py-15 px-6 bg-white scroll-mt-24"
       >
         <div className="max-w-6xl mx-auto">
           <div className="mb-20">
@@ -311,7 +341,7 @@ const LandingPage = () => {
               Everything in one<br /><span className="italic">seamless app.</span>
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-px bg-[#EAEAE6] border border-[#EAEAE6]">
+          <div ref={exploreRef} className="grid md:grid-cols-3 gap-px bg-[#EAEAE6] border border-[#EAEAE6]">
             {[
               { icon: Search, title: "Smart Search", desc: "Find providers by trade type, company name, or your current location with street-level precision." },
               { icon: Building2, title: "Company Profiles", desc: "View full business profiles with photo galleries, banners, bios, and all the context you need to decide." },
