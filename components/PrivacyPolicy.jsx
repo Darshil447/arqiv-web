@@ -37,7 +37,7 @@ const PrivacyPolicy = () => {
                         <p className="section-label mb-5 ">Privacy Policy</p>
                         <div className="divider mb-8" />
                         <p className="font-body text-[#888] text-base leading-relaxed font-medium max-w-3xl">
-                            Welcome to Arqiv, the AI Powered Service Connect App ("we," "us," or "our"). This Privacy Policy is designed to inform you about how we collect, use, disclose, and safeguard your personal information when you use our Arqiv mobile application (the "App"). By using the App, you consent to the practices described in this Privacy Policy.
+                            Welcome to Arqiv, the Service Connect App ("we," "us," or "our"). This Privacy Policy is designed to inform you about how we collect, use, disclose, and safeguard your personal information when you use our Arqiv mobile application (the "App"). By using the App, you consent to the practices described in this Privacy Policy.
                         </p>
                     </div>
 
