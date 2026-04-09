@@ -39,10 +39,10 @@ const LandingPage = () => {
   const scrollToSection = (ref, offset = 0) => {
     if (!ref.current) return;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    
+
     const elementPosition = ref.current.getBoundingClientRect().top + window.pageYOffset;
     const offsetPosition = elementPosition - offset;
-    
+
     window.scrollTo({
       top: offsetPosition,
       behavior: prefersReducedMotion ? "auto" : "smooth"
@@ -59,7 +59,7 @@ const LandingPage = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.firstName.trim()) {
       newErrors.firstName = 'First name is required';
     }
@@ -76,7 +76,7 @@ const LandingPage = () => {
     } else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, ''))) {
       newErrors.phone = 'Please enter a valid 10-digit phone number';
     }
-    
+
     return newErrors;
   };
 
@@ -96,12 +96,12 @@ const LandingPage = () => {
       setErrors(newErrors);
       return;
     }
-    
-    
+
+
     setIsSubmitting(true);
-    
+
     try {
-      
+
       const documentData = {
         firstName: formData.firstName.trim(),
         lastName: formData.lastName.trim(),
@@ -109,33 +109,33 @@ const LandingPage = () => {
         phone: formData.phone.trim(),
         createdAt: serverTimestamp()
       };
-      
-      
+
+
       // Save to Firebase Firestore
       const docRef = await addDoc(collection(db, "Waiting_List"), documentData);
-      
-      
-      
+
+
+
       setIsSubmitting(false);
       setShowSuccess(true);
-      
-      
-      
+
+
+
       // Reset form after success
       setTimeout(() => {
         setFormData({ firstName: '', lastName: '', email: '', phone: '' });
         setShowSuccess(false);
       }, 3000);
-      
+
     } catch (error) {
       console.error("🔥 Firebase error details:", {
         code: error.code,
         message: error.message,
         stack: error.stack
       });
-      
+
       setIsSubmitting(false);
-      
+
       // You could add error handling here, like showing an error message
       alert("There was an error submitting your information. Please try again.");
     }
@@ -303,7 +303,7 @@ const LandingPage = () => {
               onClick={handleExploreScroll}
               className="btn-gold bg-[#D4A017] text-white px-12 py-5 rounded-full font-body font-medium text-sm tracking-widest uppercase duration-300"
             >
-              Explore 
+              Explore
             </button>
             <svg width="12" height="24" viewBox="0 0 12 24" fill="none" className="animate-bounce opacity-40">
               <path d="M6 0V22M6 22L1 17M6 22L11 17" stroke="#D4A017" strokeWidth="1" />
@@ -329,8 +329,8 @@ const LandingPage = () => {
       </section>
 
       {/* ═══ 2. WHAT YOU GET ═══ */}
-      <section 
-       
+      <section
+
         className="py-15 px-6 bg-white scroll-mt-24"
       >
         <div className="max-w-6xl mx-auto">
@@ -695,11 +695,11 @@ const LandingPage = () => {
                 <div className="success-animation flex flex-col items-center justify-center py-12">
                   <div className="checkmark-circle w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mb-6">
                     <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path 
-                        className="checkmark-path" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        strokeWidth={3} 
+                      <path
+                        className="checkmark-path"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={3}
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
@@ -716,9 +716,8 @@ const LandingPage = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       placeholder="First Name *"
-                      className={`w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-[#222] placeholder:text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#D4A017]/30 ${
-                        errors.firstName ? 'border-red-500' : 'border-[#E3E3DE]'
-                      }`}
+                      className={`w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-[#222] placeholder:text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#D4A017]/30 ${errors.firstName ? 'border-red-500' : 'border-[#E3E3DE]'
+                        }`}
                     />
                     {errors.firstName && (
                       <p className="mt-1 text-sm text-red-500">{errors.firstName}</p>
@@ -731,9 +730,8 @@ const LandingPage = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       placeholder="Last Name *"
-                      className={`w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-[#222] placeholder:text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#D4A017]/30 ${
-                        errors.lastName ? 'border-red-500' : 'border-[#E3E3DE]'
-                      }`}
+                      className={`w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-[#222] placeholder:text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#D4A017]/30 ${errors.lastName ? 'border-red-500' : 'border-[#E3E3DE]'
+                        }`}
                     />
                     {errors.lastName && (
                       <p className="mt-1 text-sm text-red-500">{errors.lastName}</p>
@@ -746,9 +744,8 @@ const LandingPage = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="Email Address *"
-                      className={`w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-[#222] placeholder:text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#D4A017]/30 ${
-                        errors.email ? 'border-red-500' : 'border-[#E3E3DE]'
-                      }`}
+                      className={`w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-[#222] placeholder:text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#D4A017]/30 ${errors.email ? 'border-red-500' : 'border-[#E3E3DE]'
+                        }`}
                     />
                     {errors.email && (
                       <p className="mt-1 text-sm text-red-500">{errors.email}</p>
@@ -761,9 +758,8 @@ const LandingPage = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="Phone Number *"
-                      className={`w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-[#222] placeholder:text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#D4A017]/30 ${
-                        errors.phone ? 'border-red-500' : 'border-[#E3E3DE]'
-                      }`}
+                      className={`w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-[#222] placeholder:text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#D4A017]/30 ${errors.phone ? 'border-red-500' : 'border-[#E3E3DE]'
+                        }`}
                     />
                     {errors.phone && (
                       <p className="mt-1 text-sm text-red-500">{errors.phone}</p>
