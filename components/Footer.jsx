@@ -18,23 +18,23 @@ const Footer = () => {
               height={34}
               className="w-[90px] h-auto brightness-0 invert"
             />
-            <p className="text-[#666] text-xs leading-relaxed font-light">
+            <p className="text-[#B7B7B7] text-sm leading-7 tracking-[0.01em] font-normal">
               Connecting users with trusted local service providers. Search, chat, and book — all in one place.
             </p>
           </div>
 
           {/* Links column */}
           <div className="flex flex-col gap-3">
-            <p className="text-[10px] uppercase tracking-[3px] text-[#D4A017] font-medium mb-1">Legal</p>
+            <p className="text-xs uppercase tracking-[2.4px] text-[#D4A017] font-semibold mb-2">Legal</p>
             <Link
               href="/termsCondition"
-              className="text-[#888] text-sm hover:text-white transition-colors duration-200"
+              className="text-[#D0D0D0] text-sm tracking-[0.01em] leading-6 hover:text-white transition-colors duration-200"
             >
               Terms of Use
             </Link>
             <Link
               href="/privacyPolicy"
-              className="text-[#888] text-sm hover:text-white transition-colors duration-200"
+              className="text-[#D0D0D0] text-sm tracking-[0.01em] leading-6 hover:text-white transition-colors duration-200"
             >
               Privacy Policy
             </Link>
@@ -43,7 +43,7 @@ const Footer = () => {
           {/* Download + Social column */}
           <div className="flex flex-col gap-6">
             <div>
-              <p className="text-[10px] uppercase tracking-[3px] text-[#D4A017] font-medium mb-4">Download</p>
+              <p className="text-xs uppercase tracking-[2.4px] text-[#D4A017] font-semibold mb-4">Download</p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Image
                   src="/images/playStore.svg"
@@ -63,7 +63,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <p className="text-[10px] uppercase tracking-[3px] text-[#D4A017] font-medium mb-4">Follow Us</p>
+              <p className="text-xs uppercase tracking-[2.4px] text-[#D4A017] font-semibold mb-4">Follow Us</p>
               <div className="flex gap-4">
                 {[
                   { src: "/images/instagram.svg", alt: "Instagram" },
@@ -86,10 +86,10 @@ const Footer = () => {
       {/* Bottom bar */}
       <div className="border-t border-[#1F1F1F]">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-[#555] text-xs">
+          <p className="text-[#9A9A9A] text-sm tracking-[0.01em] leading-6">
             © {new Date().getFullYear()} Arqiv. All rights reserved.
           </p>
-          <p className="text-[#3A3A3A] text-xs">
+          <p className="text-[#7D7D7D] text-sm tracking-[0.01em] leading-6">
             Built for those who value their time.
           </p>
         </div>

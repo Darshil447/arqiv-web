@@ -3,22 +3,21 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeItem, setActiveItem] = useState("/");
+  const pathname = usePathname();
 
   const handleScroll = () => setScrolled(window.scrollY >= 80);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    setActiveItem(window.location.pathname);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleItemClick = (path) => {
-    setActiveItem(path);
+  const handleItemClick = () => {
     setMenuOpen(false);
   };
 
@@ -32,14 +31,14 @@ const Navbar = () => {
     <>
       {/* Fixed navbar bar — logo stays pinned */}
       <header
-        className={`z-50 h-20 flex items-center justify-between px-6 lg:px-16 transition-all duration-300 ${
+        className={`sticky top-0 z-50 h-20 flex items-center justify-between px-6 lg:px-16 transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-[#E8E8E4] shadow-sm"
-            : "bg-transparent"
+            ? "bg-[#F5F3EC]/98 backdrop-blur-md border-b border-[#E2DDCF] shadow-sm"
+            : "bg-[#F5F3EC]/92 border-b border-[#E2DDCF] shadow-sm"
         }`}
       >
         {/* Logo — always visible, always fixed */}
-        <Link href="/" onClick={() => handleItemClick("/")}>
+        <Link href="/" onClick={handleItemClick}>
           <Image
             src="/images/Arqiv_Logo_Black 2.svg"
             alt="Arqiv"
@@ -55,9 +54,9 @@ const Navbar = () => {
             <Link
               key={href}
               href={href}
-              onClick={() => handleItemClick(href)}
+              onClick={handleItemClick}
               className={`font-sans text-sm transition-colors duration-200 ${
-                activeItem === href
+                pathname === href
                   ? "text-black font-medium"
                   : "text-[#888] hover:text-black"
               }`}
@@ -83,7 +82,7 @@ const Navbar = () => {
 
       {/* Mobile drawer — slides down below the fixed bar */}
       <div
-        className={`fixed top-20 left-0 right-0 z-40 bg-white border-b border-[#E8E8E4] shadow-lg transition-all duration-300 overflow-hidden lg:hidden ${
+        className={`fixed top-20 left-0 right-0 z-40 bg-[#FAFAF8] border-b border-[#E8E8E4] shadow-lg transition-all duration-300 overflow-hidden lg:hidden ${
           menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -92,9 +91,9 @@ const Navbar = () => {
             <Link
               key={href}
               href={href}
-              onClick={() => handleItemClick(href)}
+              onClick={handleItemClick}
               className={`py-3 px-4 rounded-xl text-sm font-sans transition-all duration-200 ${
-                activeItem === href
+                pathname === href
                   ? "bg-[#FFF8E7] text-[#D4A017] font-medium"
                   : "text-[#555] hover:bg-[#F8F8F5] hover:text-black"
               }`}
