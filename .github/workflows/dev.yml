@@ -1,0 +1,17 @@
+on:
+  push:
+    branches:
+      - dev
+concurrency:
+  group:DEV
+  cancel-in-progress: true
+name: 🚀 Deploy dev to Vercel Server
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy dev
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: ''
+        method: 'GET'

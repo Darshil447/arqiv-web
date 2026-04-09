@@ -5,84 +5,119 @@ import Footer from "./Footer";
 
 const PrivacyPolicy = () => {
     return (
-        <div className="font-ginger box-border bg-white text-black">
-            <div className="w-full lg:h-[498px] h-[300px] bg-gradient-to-b from-[#FFF9E6] to-[#D4A017] ">
-                <Navbar />
-                <div className="lg:pt-56 md:pt-32 pt-36">
-                    <p className="lg:w-[725px] lg:text-[60px] md:text-[42px] text-[32px] mx-auto font-bold text-white text-center ">
-                        Privacy Policy
-                    </p>
-                    {/* <p className="lg:w-[289px] lg:text-[20px] md:text-[18px] text-[16px] text-[#F5EFE6] mx-auto lg:mt-4 mt-1 text-center">
-                        Updated September 28, 2023
-                    </p> */}
-                </div>
-            </div>
+        <div className="bg-[#FAFAF8] text-black font-sans selection:bg-[#D4A017] selection:text-white overflow-x-hidden">
+            <style>{`
+                .font-display {
+                    font-family: 'Archivo', sans-serif;
+                    font-weight: 700;
+                    letter-spacing: -0.03em;
+                }
+                .font-body {
+                    font-family: 'Archivo', sans-serif;
+                    letter-spacing: 0.012em;
+                }
 
-            <section className="lg:h-[910px] lg:mx-[140px] lg:my-20 my-6">
-                <div className="px-4 pt-5">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>1.</span> <span>Introduction</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        Welcome to Arqiv, the AI Powered Service Connect App ("we," "us," or "our"). This Privacy Policy is designed to inform you about how we collect, use, disclose, and safeguard your personal information when you use our Arqiv mobile application (the "App"). By using the App, you consent to the practices described in this Privacy Policy.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>2.</span> <span>Information We Collect</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        a. Personal Information: We may collect personal information, such as your name, email address, and device information, when you register or use our App.
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        b. Service Data: Arqiv utilizes location and service data to connect you with providers. This data is processed securely within the app.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>3.</span> <span>How We Use Your Information</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        We may use your information for the following purposes:
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        a. To provide and enhance our services, including personalized service recommendations.
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        b. To communicate with you, respond to your inquiries, and provide user support.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>4.</span> <span>Disclosure of Your Information</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        We do not sell, trade, or otherwise transfer your personal information to third parties. We may share aggregated, non-personal information publicly.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>5.</span> <span>Your Choices</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        You can manage location permissions within your device settings. Additionally, you can contact us to request the deletion of your account and personal information from our records.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>6.</span> <span>Security</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>7.</span> <span>Changes to This Privacy Policy</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last Updated" date.
-                    </p>
+                .section-label {
+                    font-family:'Archivo',sans-serif;
+                    font-size:14px; letter-spacing:3.5px;
+                    text-transform:uppercase; color:#D4A017; font-weight:500;
+                }
+                .divider { width:36px; height:1px; background:#D4A017; }
+
+                .policy-section { transition:all .3s ease; border-bottom:1px solid transparent; }
+                .policy-section:hover { border-bottom-color:#D4A017; }
+            `}</style>
+
+            <Navbar />
+
+            {/* ═══ PRIVACY POLICY CONTENT ═══ */}
+            <section className="pt-20 pb-32 px-6 bg-white">
+                <div className="max-w-4xl mx-auto">
+                    <div className="mb-20">
+                        <p className="section-label mb-5 ">Privacy Policy</p>
+                        <div className="divider mb-8" />
+                        <p className="font-body text-[#888] text-base leading-relaxed font-medium max-w-3xl">
+                            Welcome to Arqiv, the AI Powered Service Connect App ("we," "us," or "our"). This Privacy Policy is designed to inform you about how we collect, use, disclose, and safeguard your personal information when you use our Arqiv mobile application (the "App"). By using the App, you consent to the practices described in this Privacy Policy.
+                        </p>
+                    </div>
+
+                    <div className="space-y-16">
+                        <div className="policy-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">1.</span> Introduction
+                            </h3>
+                            <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                We are committed to protecting your privacy and ensuring transparency in how we handle your personal information. This policy outlines our data practices and your rights regarding your personal data.
+                            </p>
+                        </div>
+
+                        <div className="policy-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">2.</span> Information We Collect
+                            </h3>
+                            <div className="space-y-4">
+                                <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                    <span className="font-medium text-black">a. Personal Information:</span> We may collect personal information, such as your name, email address, and device information, when you register or use our App.
+                                </p>
+                                <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                    <span className="font-medium text-black">b. Service Data:</span> Arqiv utilizes location and service data to connect you with providers. This data is processed securely within the app.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="policy-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">3.</span> How We Use Your Information
+                            </h3>
+                            <div className="space-y-4">
+                                <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                    We may use your information for the following purposes:
+                                </p>
+                                <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                    <span className="font-medium text-black">a. Service Enhancement:</span> To provide and enhance our services, including personalized service recommendations.
+                                </p>
+                                <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                    <span className="font-medium text-black">b. Communication:</span> To communicate with you, respond to your inquiries, and provide user support.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="policy-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">4.</span> Disclosure of Your Information
+                            </h3>
+                            <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                We do not sell, trade, or otherwise transfer your personal information to third parties. We may share aggregated, non-personal information publicly.
+                            </p>
+                        </div>
+
+                        <div className="policy-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">5.</span> Your Choices
+                            </h3>
+                            <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                You can manage location permissions within your device settings. Additionally, you can contact us to request the deletion of your account and personal information from our records.
+                            </p>
+                        </div>
+
+                        <div className="policy-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">6.</span> Security
+                            </h3>
+                            <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
+                            </p>
+                        </div>
+
+                        <div className="policy-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">7.</span> Changes to This Privacy Policy
+                            </h3>
+                            <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last Updated" date.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
 

@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
+  --brand-font: var(--font-brand), sans-serif;
   /* Aligned with app profile UI: mustard primary, cream highlight, neutral text */
   --brand-primary: #d4a017;
   --brand-primary-hover: #b8890f;
@@ -17,7 +18,7 @@
   --color-brand: var(--brand-primary);
   --color-brand-hover: var(--brand-primary-hover);
   --color-brand-cream: var(--brand-cream);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--brand-font);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -26,5 +27,114 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--brand-font);
+}
+
+/* === SOFT PREMIUM GLOW SYSTEM === */
+
+/* Ambient radial glow */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(212, 160, 23, 0.12),
+    transparent 55%
+  );
+}
+
+/* Stronger center glow for heading focus */
+.hero-glow-center {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: rgba(212, 160, 23, 0.18);
+  filter: blur(120px);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+/* Subtle floating gradient blobs */
+.hero-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(212, 160, 23, 0.10);
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+}
+
+/* Optional soft animation */
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.glow-animate {
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+/* Slightly improve your existing tech grid */
+.tech-lines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  background-image:
+    linear-gradient(rgba(212, 160, 23, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 160, 23, 0.22) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(ellipse at center, black 70%, transparent 98%);
+  pointer-events: none;
+}
+
+/* Decorative SVG lines for the sides (The 'Amtar' look) */
+.side-line {
+  position: absolute;
+  stroke: #D4A017;
+  stroke-width: 1;
+  fill: none;
+  opacity: 1;
+}
+
+/* A slow pulse for the decorative dots */
+@keyframes techPulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+.tech-dot {
+  fill: #D4A017;
+  animation: techPulse 4s infinite ease-in-out;
+}
+
+/* === LOGO STYLING === */
+
+.logo-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-cream);
+  border: 2px solid var(--brand-primary);
+  border-radius: 50%;
+  padding: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(212, 160, 23, 0.2);
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(212, 160, 23, 0.3);
+  border-color: var(--brand-primary-hover);
+}
+
+.logo-container img {
+  width: 40px;
+  height: auto;
 }

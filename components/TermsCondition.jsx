@@ -5,95 +5,131 @@ import Footer from "./Footer";
 
 const TermsCondition = () => {
     return (
-        <div className="font-ginger box-border bg-white text-black">
-            <div className="w-full lg:h-[498px] h-[300px] bg-gradient-to-b from-[#FFF9E6] to-[#D4A017] ">
-                <Navbar />
-                <div className="lg:pt-56 md:pt-32 pt-36">
-                    <p className="lg:w-[725px] lg:text-[60px] md:text-[42px] text-[32px] mx-auto font-bold text-white text-center ">
-                        Terms and Conditions
-                    </p>
-                    {/* <p className="lg:w-[289px] lg:text-[20px] md:text-[18px] text-[16px] text-[#F5EFE6] mx-auto lg:mt-4 mt-1 text-center">
-                        Updated September 28, 2023
-                    </p> */}
-                </div>
-            </div>
+        <div className="bg-[#FAFAF8] text-black font-sans selection:bg-[#D4A017] selection:text-white overflow-x-hidden">
+            <style>{`
+                .font-display {
+                    font-family: 'Archivo', sans-serif;
+                    font-weight: 700;
+                    letter-spacing: -0.03em;
+                }
+                .font-body {
+                    font-family: 'Archivo', sans-serif;
+                    letter-spacing: 0.012em;
+                }
 
-            <section className="lg:h-[1020px] lg:mx-[140px] lg:my-20 my-6">
-                <div className="px-4 pt-5">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>1.</span> <span>Acceptance of Terms</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        By downloading, installing, or using Arqiv: AI Powered Service Connect App (&quot;App&quot;), you agree to comply with and be bound by these Terms and Conditions.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>2.</span> <span>User Responsibilities</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        a. Age Restriction: You must be at least 18 years old to use this App. By using the App, you confirm that you are of legal age.
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        b. Accurate Information: You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>3.</span> <span>Use of the App</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        a. Service Data Usage: The App may use location and service data to enable certain features. You consent to the collection and use of service data as described in the Privacy Policy.
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        b. Prohibited Activities: You agree not to engage in any activity that may interfere with the proper functioning of the App, including but not limited to, distributing malware, attempting to gain unauthorized access, or disrupting networks connected to the App.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>4.</span> <span>Privacy</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        Your use of the App is also governed by our Privacy Policy, which is incorporated by reference into these Terms and Conditions.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>5.</span> <span>Intellectual Property</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        The App and its original content, features, and functionality are owned by Arqiv and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>6.</span> <span>Disclaimer of Warranties</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        The App is provided "as is." Arqiv makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties, including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>7.</span> <span>Limitation of Liability</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        In no event shall Arqiv be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from (a) your use or inability to use the App; (b) any unauthorized access to or use of our servers and/or any personal information stored therein; (c) any interruption or cessation of transmission to or from the App; or (d) any bugs, viruses, trojan horses, or the like, which may be transmitted to or through the App by any third party.
-                    </p>
-                </div>
-                <div className="px-4 pt-7">
-                    <p className="font-bold text-[24px] text-black tracking-[0.5px] flex">
-                        <span>8.</span> <span>Governing Law</span>
-                    </p>
-                    <p className="text-[#757575] text-[14px] tracking-[0.5px] pt-2">
-                        These Terms and Conditions are governed by and construed in accordance with the laws of [Your Jurisdiction] and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
-                    </p>
+                .section-label {
+                    font-family:'Archivo',sans-serif;
+                    font-size:14px; letter-spacing:3.5px;
+                    text-transform:uppercase; color:#D4A017; font-weight:500;
+                }
+                .divider { width:36px; height:1px; background:#D4A017; }
+
+                .terms-section { transition:all .3s ease; border-bottom:1px solid transparent; }
+                .terms-section:hover { border-bottom-color:#D4A017; }
+            `}</style>
+
+            <Navbar />
+
+            {/* ═══ TERMS & CONDITIONS CONTENT ═══ */}
+            <section className="pt-20 pb-32 px-6 bg-white">
+                <div className="max-w-4xl mx-auto">
+                    <div className="mb-20">
+                        <p className="section-label mb-5">Terms and Conditions</p>
+                        <div className="divider mb-8" />
+                        <p className="font-body text-[#888] text-base leading-relaxed font-medium max-w-3xl">
+                            By downloading, installing, or using Arqiv:you agree to comply with and be bound by these Terms and Conditions.
+                        </p>
+                    </div>
+
+                    <div className="space-y-16">
+                        <div className="terms-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">1.</span> Acceptance of Terms
+                            </h3>
+                            <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                By accessing and using this App, you accept and agree to be bound by the terms and provision of this agreement.
+                            </p>
+                        </div>
+
+                        <div className="terms-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">2.</span> User Responsibilities
+                            </h3>
+                            <div className="space-y-4">
+                                <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                    <span className="font-medium text-black">a. Age Restriction:</span> You must be at least 18 years old to use this App. By using the App, you confirm that you are of legal age.
+                                </p>
+                                <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                    <span className="font-medium text-black">b. Accurate Information:</span> You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="terms-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">3.</span> Use of the App
+                            </h3>
+                            <div className="space-y-4">
+                                <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                    <span className="font-medium text-black">a. Service Data Usage:</span> The App may use location and service data to enable certain features. You consent to the collection and use of service data as described in the Privacy Policy.
+                                </p>
+                                <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                    <span className="font-medium text-black">b. Prohibited Activities:</span> You agree not to engage in any activity that may interfere with the proper functioning of the App, including but not limited to, distributing malware, attempting to gain unauthorized access, or disrupting networks connected to the App.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="terms-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">4.</span> Privacy
+                            </h3>
+                            <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                Your use of the App is also governed by our Privacy Policy, which is incorporated by reference into these Terms and Conditions.
+                            </p>
+                        </div>
+
+                        <div className="terms-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">5.</span> Intellectual Property
+                            </h3>
+                            <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                The App and its original content, features, and functionality are owned by Arqiv and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.
+                            </p>
+                        </div>
+
+                        <div className="terms-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">6.</span> Disclaimer of Warranties
+                            </h3>
+                            <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                The App is provided "as is." Arqiv makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties, including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+                            </p>
+                        </div>
+
+                        <div className="terms-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">7.</span> Limitation of Liability
+                            </h3>
+                            <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                In no event shall Arqiv be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from your use or inability to use the App.
+                            </p>
+                        </div>
+
+                        <div className="terms-section pb-8">
+                            <h3 className="font-display text-3xl font-medium mb-6 text-black">
+                                <span className="text-[#D4A017] mr-3">8.</span> Governing Law
+                            </h3>
+                            <p className="font-body text-[#666] text-base leading-relaxed font-medium">
+                                These Terms and Conditions are governed by and construed in accordance with the laws of [Your Jurisdiction] and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <Footer />
         </div>
-        );
+    );
 };
 
 export default TermsCondition;
