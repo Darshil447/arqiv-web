@@ -313,18 +313,50 @@ const LandingPage = () => {
 
         {/* TICKER */}
         <div className="relative z-20 -mt-20 py-6 border-y border-[#E8E8E4] overflow-hidden bg-white/50 backdrop-blur-sm">
-          <div className="ticker-track flex gap-12 whitespace-nowrap w-max">
-            {[
-              "Plumbing", "Electrical", "Carpentry", "Painting", "HVAC", "Roofing",
-              "Landscaping", "Cleaning", "Masonry", "Flooring", "Tiling", "Gas Works"
-            ].map((item, i) => (
-              <span key={i} className="font-display text-base italic text-[#111]/70 flex items-center gap-12">
-                {item}
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4A017]/40" />
-              </span>
-            ))}
-          </div>
-        </div>
+  <div className="ticker-track flex gap-12 whitespace-nowrap w-max">
+    {[
+      "Electrician",
+      "Plumber",
+      "Handyman",
+      "Locksmith",
+      "Painting",
+      "Pest Control",
+      "Tiling",
+      "Bricklaying",
+      "Glazing",
+      "Concreting",
+      "Fencing",
+      "Earthworks",
+      "Retaining Walls",
+      "Gardening",
+      "Carpentry",
+      "Paving",
+      "Plastering",
+      "Cleaning",
+      "Mechanic",
+      "Electrical Appliances",
+      "HVAC / Air Conditioning",
+      "Demolition",
+      "Solar Panels",
+      "Interior Design",
+      "Pool / Spa Services",
+      "Security Systems",
+      "Moving Services",
+      "Landscaping",
+      "Tech / IT Services",
+      "Pet Services",
+      "Other / Miscellaneous"
+    ].map((item, i) => (
+      <span
+        key={i}
+        className="font-display text-base italic text-[#111]/70 flex items-center gap-12"
+      >
+        {item}
+        <span className="w-1.5 h-1.5 rounded-full bg-[#D4A017]/40" />
+      </span>
+    ))}
+  </div>
+</div>
 
       </section>
 
@@ -409,7 +441,9 @@ const LandingPage = () => {
                         </p>
                         <p className="text-[9px] text-[#D4A017]">Postcode: 6169</p>
                       </div>
-                      <div className="w-7 h-7 rounded-full bg-[#F5F5F0] flex items-center justify-center text-[11px]">🔔</div>
+                      <div className="w-7 h-7 rounded-full bg-[#F5F5F0] flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-bell-dot-icon lucide-bell-dot"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M11.68 2.009A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673c-.824-.85-1.678-1.731-2.21-3.348"/><circle cx="18" cy="5" r="3"/></svg>
+                    </div>
                     </div>
                     <div className="bg-[#F5F5F0] rounded-xl px-4 py-2.5 flex items-center gap-2 mb-5">
                       <span className="text-[#A0A0A0]">🔍</span>
@@ -503,12 +537,7 @@ const LandingPage = () => {
                         <p className="text-[12px] text-white leading-relaxed">Sure thing! Sending it over now.</p>
                       </div>
                     </div>
-                    <div className="flex justify-end">
-                      <div className="w-36 h-36 rounded-2xl border-2 border-[#D4A017] overflow-hidden shadow-lg relative">
-                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center"><span className="text-white text-2xl">📷</span></div>
-                        <div className="w-full h-full bg-[#1A1A1A] opacity-30" />
-                      </div>
-                    </div>
+                    
                   </div>
 
                   {/* Bottom Nav Mock */}
@@ -582,7 +611,7 @@ const LandingPage = () => {
                 <div className="flex items-center justify-between mb-10">
                   <div>
                     <p className="font-body text-[11px] text-[#999] uppercase tracking-wider">Welcome Back!</p>
-                    <p className="font-body text-lg font-bold text-black">Jacob 👋</p>
+                    <p className="font-body text-lg font-bold text-black">John Wilson</p>
                   </div>
                   <div className="relative">
                     {/* Notification Badge */}

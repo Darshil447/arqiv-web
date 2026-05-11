@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { MessageCircle } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -66,16 +67,28 @@ const Footer = () => {
               <p className="text-xs uppercase tracking-[2.4px] text-[#D4A017] font-semibold mb-4">Follow Us</p>
               <div className="flex gap-4">
                 {[
-                  { src: "/images/instagram.svg", alt: "Instagram" },
-                  { src: "/images/facebook.svg", alt: "Facebook" },
-                  { src: "/images/linkedIn.svg", alt: "LinkedIn" },
-                ].map(({ src, alt }) => (
-                  <div
+                  { src: "/images/instagram.svg", alt: "Instagram", href: "https://www.instagram.com/arqiv_au/" },
+                  { src: "/images/facebook.svg", alt: "Facebook", href: "https://www.facebook.com/profile.php?id=61589656256483" },
+                  { src: "/images/linkedIn.svg", alt: "LinkedIn", href: "https://www.linkedin.com/company/arqiv-pty-ltd" },
+                  { svg: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19.25 8.505c-1.577-5.867-7-5.5-7-5.5s-7.5-.5-7.5 8.995s7.5 8.996 7.5 8.996s4.458.296 6.5-3.918c.667-1.858.5-5.573-6-5.573c0 0-3 0-3 2.5c0 .976 1 2 2.5 2s3.171-1.027 3.5-3c1-6-4.5-6.5-6-4" color="currentColor"/></svg>, alt: "Threads", href: "https://www.threads.com/@arqiv_au" },
+                ].map(({ src, alt, href, icon, svg }) => (
+                  <a
                     key={alt}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-9 h-9 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center hover:border-[#D4A017] hover:bg-[#D4A017]/10 transition-all duration-200 cursor-pointer"
                   >
-                    <Image src={src} alt={alt} width={18} height={18} className="w-[18px] h-[18px] brightness-0 invert opacity-70" />
-                  </div>
+                    {svg ? (
+                      <div className="text-white opacity-70">
+                        {svg}
+                      </div>
+                    ) : icon ? (
+                      <icon size={18} className="text-white opacity-70" />
+                    ) : (
+                      <Image src={src} alt={alt} width={18} height={18} className="w-[18px] h-[18px] brightness-0 invert opacity-70" />
+                    )}
+                  </a>
                 ))}
               </div>
             </div>
