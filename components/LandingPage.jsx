@@ -21,7 +21,7 @@ import {
   Zap,
   ShieldCheck,
   Layers3,
-} from "lucide-react";
+} from "lucide-react"; 
 
 const LandingPage = () => {
   const waitingListRef = useRef(null);
