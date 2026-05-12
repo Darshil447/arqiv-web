@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12">
 
           {/* Brand column */}
-          <div className="flex flex-col gap-5 md:max-w-[220px]">
+          <div className="flex flex-col gap-5 md:max-w-[250px]">
             <Image
               src="/images/Arqiv_Logo_Black 2.svg"
               alt="Arqiv"

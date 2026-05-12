@@ -42,9 +42,9 @@ const Navbar = () => {
           <Image
             src="/images/Arqiv_Logo_Black 2.svg"
             alt="Arqiv"
-            width={120}
-            height={40}
-            className="w-[110px] h-auto"
+            width={150}
+            height={50}
+            className="w-40 h-auto"
           />
         </Link>
 
